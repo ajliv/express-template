@@ -1,0 +1,39 @@
+{
+  "name": "@ajliv/rest-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ajliv <livingston.aj@gmail.com> (https://ajliv.in)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "jest",
+    "watch": "nodemon index.ts",
+    "watch:debug": "nodemon --inspect=0.0.0.0:9229 index.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "@types/jest": "^26.0.23",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
