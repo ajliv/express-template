@@ -1,4 +1,5 @@
-.PHONY: dist pack
+.PHONY: dist pack start
+.DEFAULT_GOAL := start
 
 dist:
 	yarn install
@@ -10,3 +11,7 @@ dist:
 pack: dist
 	rm -f package.zip
 	cd dist && zip -r ../package.zip *
+
+start:
+	yarn install
+	yarn watch:debug
