@@ -3,3 +3,6 @@ export abstract class HttpException extends Error {
         super(message);
     }
 }
+
+export const isHttpException = (err?: unknown): err is HttpException =>
+    err instanceof HttpException;

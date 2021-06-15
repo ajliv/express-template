@@ -1,13 +1,12 @@
 import { STATUS_CODES } from 'http';
 
-import { ErrorRequestHandler, RequestHandler } from 'express';
+import { ErrorRequestHandler } from 'express';
 
-import { HttpException } from './exceptions/http.exception';
-import { NotFoundException } from './exceptions/not-found.exception';
+import { isHttpException } from './errors/http.exception';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-    if (err instanceof HttpException) {
+    if (isHttpException(err)) {
         res.status(err.status);
         res.json({ error: err.message });
     } else {
@@ -15,8 +14,4 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         res.json({ error: STATUS_CODES[500]! });
     }
-};
-
-export const notFoundHandler: RequestHandler = (req, res, next) => {
-    next(new NotFoundException());
 };

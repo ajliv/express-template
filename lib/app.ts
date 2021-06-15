@@ -1,26 +1,19 @@
 import express from 'express';
-import morgan from 'morgan';
 
 import routes from './app.routes';
-import { LOG_FORMAT } from './config';
-import { errorHandler, notFoundHandler } from './utils/error-handler';
-import { errorLoggerMiddleware } from './utils/error-logger.middleware';
-import { logger } from './utils/logger';
+import { errorHandler } from './utils/error-handler';
+import { errorLogger } from './utils/middleware/error-logger.middleware';
+import { httpLogger } from './utils/middleware/http-logger.middleware';
+import { notFound } from './utils/middleware/not-found.middleware';
 
 const app = express();
 
-// stream morgan logs through the logger with an http log level
-export const httpLogger: morgan.StreamOptions = {
-    write: (str) => logger.log('http', str.replace(/\n$/, '')),
-};
-
 app.set('trust proxy', true);
+app.set('x-powered-by', false);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(morgan(LOG_FORMAT, { stream: httpLogger }));
-
-app.use(routes);
-app.use(notFoundHandler);
-app.use(errorLoggerMiddleware, errorHandler);
+app.use(httpLogger);
+app.use(routes, notFound);
+app.use(errorLogger, errorHandler);
 
 export default app;
