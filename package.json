@@ -1,5 +1,5 @@
 {
-  "name": "@ajliv/rest-template",
+  "name": "@ajliv/express-template",
   "version": "1.0.0",
   "main": "index.js",
   "author": "ajliv <livingston.aj@gmail.com> (https://ajliv.in)",

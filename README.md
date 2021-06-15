@@ -1,10 +1,10 @@
 <img src="./docs/node.svg" alt="nodejs logo" width="96" />
 
-# rest-template
+# express-template
 
-[![CI](https://github.com/ajliv/rest-template/actions/workflows/ci.yml/badge.svg)](https://github.com/ajliv/rest-template/actions/workflows/ci.yml)
+[![CI](https://github.com/ajliv/express-template/actions/workflows/ci.yml/badge.svg)](https://github.com/ajliv/express-template/actions/workflows/ci.yml)
 
-Template repository for Node.js REST APIs using [Express](https://expressjs.com).
+Template repository for Node.js servers using [Express](https://expressjs.com).
 
 - [Requirements](#requirements)
 
